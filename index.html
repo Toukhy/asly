@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Asly | أصلي</title>
+<meta name="description" content="Compare phone prices and warranty across Egyptian stores.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f6f5f1; --card:#fff; --ink:#1b1f1d; --muted:#667068; --line:#e3e1d8; --soft:#efede6;
+  --brand:#0f6b4f; --brand-ink:#fff;
+  --a:#0f6b4f; --a-bg:#e3f3ec; --b:#8a5a00; --b-bg:#fbf0d6; --n:#8a2f2f; --n-bg:#f9e4e2; --u:#4b5563; --u-bg:#e9ebee;
+}
+@media (prefers-color-scheme:dark){
+  :root{--bg:#121513; --card:#1b201d; --ink:#eef1ee; --muted:#9aa59d; --line:#2c332f; --soft:#171c19;
+    --brand:#3fbf91; --brand-ink:#08150f; --a:#5fd6a8; --a-bg:#15342a; --b:#e5b95c; --b-bg:#3a2e10; --n:#f09a94; --n-bg:#3a1c1a; --u:#b4bcc6; --u-bg:#262b30}
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Cairo",system-ui,sans-serif;line-height:1.5}
+.wrap{max-width:640px;margin:0 auto;padding:16px 16px 48px}
+.wrap.wide{max-width:1100px}
+header{display:flex;align-items:center;justify-content:space-between;padding:4px 0 8px}
+.logo{font-size:26px;font-weight:700;color:var(--brand);background:none;border:0;padding:0;font-family:inherit;cursor:pointer}
+.lang{background:var(--card);border:1px solid var(--line);color:var(--ink);padding:6px 14px;border-radius:999px;font:inherit;font-size:14px;cursor:pointer}
+button:focus-visible,a:focus-visible,[role=button]:focus-visible,input:focus-visible,textarea:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.hero{font-size:28px;font-weight:700;line-height:1.3;margin:28px 0 6px}
+.sub{color:var(--muted);margin:0 0 16px}
+h2.pg{font-size:22px;margin:10px 0 4px}
+h3{font-size:16px;margin:20px 0 4px}
+p{margin:6px 0}
+form.s{display:flex;gap:8px;margin:6px 0 10px}
+input[type=search],input[type=text],textarea{min-width:0;padding:12px 14px;font:inherit;font-size:16px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);width:100%}
+input[type=search]{flex:1;font-size:17px;padding:14px 16px}
+textarea{min-height:96px;resize:vertical}
+.go{padding:0 22px;border:0;border-radius:12px;background:var(--brand);color:var(--brand-ink);font:inherit;font-weight:600;cursor:pointer;min-height:44px}
+.go.sec{background:var(--card);color:var(--brand);border:1px solid var(--brand)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 14px;border-radius:999px;font:inherit;font-size:14px;cursor:pointer}
+.chip[aria-pressed=true]{background:var(--brand);color:var(--brand-ink);border-color:var(--brand)}
+.trust{display:grid;gap:8px;margin:26px 0}
+.trust div{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:15px}
+.dot{width:24px;height:24px;border-radius:50%;background:var(--a-bg);color:var(--a);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex:none}
+.sum{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0}
+.sum h2{margin:0;font-size:19px}
+.spec{color:var(--muted);font-size:14px;margin-bottom:8px}
+.row{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-top:1px dashed var(--line);font-size:15px}
+.row b{white-space:nowrap}
+.safe{margin-top:10px;padding:10px 12px;border-radius:10px;background:var(--a-bg);font-size:15px}
+.safe.warn{background:var(--b-bg)}
+.banner{border-radius:12px;padding:10px 14px;font-size:14.5px;margin:10px 0;background:var(--b-bg)}
+.banner.info{background:var(--soft);border:1px solid var(--line)}
+.small{font-size:13px;color:var(--muted)}
+.list{display:grid;gap:10px;margin-top:8px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;cursor:pointer}
+.item:hover{border-color:var(--brand)}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
+.store{font-weight:600}
+.price{font-size:24px;font-weight:700}
+.price small{font-size:13px;font-weight:400;color:var(--muted)}
+.meta{color:var(--muted);font-size:14px;margin:3px 0 8px}
+.badge{display:inline-block;font-size:13px;font-weight:600;padding:2px 10px;border-radius:999px;margin-inline-end:6px;margin-bottom:4px}
+.badge.A{background:var(--a-bg);color:var(--a)}
+.badge.B{background:var(--b-bg);color:var(--b)}
+.badge.N{background:var(--n-bg);color:var(--n)}
+.badge.U{background:var(--u-bg);color:var(--u)}
+.badge.c{border:1px solid var(--line);color:var(--muted);font-weight:400}
+.flag{font-size:14px;color:var(--n);margin:4px 0 0}
+.empty{color:var(--muted);margin-top:16px}
+.foot{margin-top:28px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:12px}
+.nav{display:flex;gap:16px;flex-wrap:wrap;margin-top:24px;font-size:14px}
+.nav a,.back{color:var(--muted);text-decoration:underline;cursor:pointer;background:none;border:0;font:inherit;padding:0}
+.back{display:inline-block;margin:6px 0;color:var(--brand)}
+.tier{display:flex;gap:12px;margin:10px 0;align-items:flex-start;font-size:15px}
+.tier .badge{flex:none;margin-top:2px;min-width:72px;text-align:center}
+.ex{color:var(--muted);font-size:13px;margin-top:2px}
+.radio{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;margin:6px 0;background:var(--card);font-size:15px;cursor:pointer}
+.radio input{accent-color:var(--brand);width:18px;height:18px;margin:0}
+.lbl{display:block;font-size:14px;color:var(--muted);margin:14px 0 4px}
+.refbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
+.result{background:var(--a-bg);border-radius:12px;padding:12px 14px;margin-top:14px}
+.result textarea{margin:8px 0;font-size:14px;min-height:140px}
+ul.plain{margin:6px 0;padding-inline-start:22px}
+/* sheet */
+.dim{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:10}
+.sheet{position:fixed;inset-inline:0;bottom:0;z-index:11;max-width:560px;margin:0 auto;background:var(--card);border-radius:22px 22px 0 0;padding:14px 18px 24px;max-height:92vh;overflow:auto;box-shadow:0 -10px 40px rgba(0,0,0,.25)}
+.grab{width:44px;height:4px;border-radius:2px;background:var(--line);margin:0 auto 12px}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:15px;margin:12px 0}
+.kv span:nth-child(odd){color:var(--muted)}
+.callout{background:var(--b-bg);border-radius:12px;padding:12px 14px;font-size:14.5px;margin:12px 0}
+.callout b{display:block;margin-bottom:2px}
+.callout ul{margin:6px 0 0;padding-inline-start:20px}
+.callout li{margin:2px 0}
+a.buy{display:inline-block;padding:10px 20px;border-radius:12px;background:var(--brand);color:var(--brand-ink);text-decoration:none;font-weight:600}
+.sheetlinks{margin-top:12px;font-size:14px}
+.sheetlinks a{color:var(--muted)}
+.close{position:absolute;top:10px;inset-inline-start:12px;background:none;border:0;color:var(--muted);font:inherit;font-size:14px;cursor:pointer}
+/* desktop comparison */
+.layout{display:grid;grid-template-columns:230px 1fr;gap:18px;align-items:start}
+.side{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;font-size:14.5px;position:sticky;top:12px}
+.side h4{margin:12px 0 4px;font-size:13px;color:var(--muted);font-weight:600}
+.side h4:first-child{margin-top:2px}
+.chk{display:flex;gap:8px;align-items:center;padding:3px 0;cursor:pointer}
+.chk input{accent-color:var(--brand);width:16px;height:16px;margin:0}
+table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:14.5px}
+th,td{padding:10px 12px;text-align:start;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--soft);font-size:13px;color:var(--muted);font-weight:600}
+tbody tr{cursor:pointer}
+tbody tr:hover td{background:var(--soft)}
+tr.best td{background:var(--a-bg)}
+td.pc{font-weight:700;white-space:nowrap}
+a.open{display:inline-block;padding:5px 12px;border-radius:10px;border:1px solid var(--brand);color:var(--brand);text-decoration:none;font-weight:600;font-size:14px}
+@media (prefers-reduced-motion:no-preference){.item,tbody tr{transition:border-color .15s}}
+</style>
+</head>
+<body>
+<div class="wrap" id="wrap">
+  <header>
+    <button class="logo" id="logo" type="button"></button>
+    <button class="lang" id="lang" type="button"></button>
+  </header>
+  <main id="main"></main>
+  <nav class="nav" id="nav"></nav>
+  <p class="foot" id="foot"></p>
+</div>
+<div id="layer"></div>
+
+<script>
+var CHECKED = "2026-10-05";
+var REPORT_EMAIL = "";                 // set when the owner picks a contact; empty means "copy the report" only
+var CONTACT_EMAIL = "";                // shown on the AslyBot page; empty shows a placeholder
+var SOURCES_DOWN = [];                 // e.g. ["Jumia"] when a store could not be read in the latest run
+
+var P = [
+ {id:"i15", q:"iphone 15 128gb", name:{en:"iPhone 15 128GB",ar:"آيفون 15 سعة 128 جيجا"}, spec:{en:"5G, 128GB",ar:"5G، سعة 128 جيجا"},
+  alias:"iphone 15 ايفون 15 آيفون 15 apple", L:[
+  {r:"Noon",p:49499,c:"Black",u:"https://www.noon.com/egypt-en/iphone-15-128gb-black-5g-with-facetime-international-version/N53433298A/p/",ver:"International",w:{en:"Page states: No warranty",ar:"الصفحة تذكر: لا يوجد ضمان"},tier:"N",s:"Paris store"},
+  {r:"Noon",p:49500,c:"Blue",u:"https://www.noon.com/egypt-en/iphone-15-128gb-blue-5g-with-facetime-international-version/N53433297A/p/",ver:"International",w:{en:"Page states: No warranty",ar:"الصفحة تذكر: لا يوجد ضمان"},tier:"N",s:"Paris store"},
+  {r:"Noon",p:51800,c:"Black",u:"https://www.noon.com/egypt-en/iphone-15-128gb-black-5g-with-facetime-middle-east-version/N53432546A/p/",ver:"Middle East",w:{en:"Page states: 2 year manufacturer warranty",ar:"الصفحة تذكر: ضمان الشركة المصنعة سنتين"},tier:"A",s:"Dubai Phone Authorized seller"},
+  {r:"Noon",p:53411,c:"Black",u:"https://www.noon.com/egypt-en/refurbished-iphone-15-128gb-black-5g-with-facetime-international-version/N70401236V/p/",ver:"International",cond:"refurb",w:{en:"Refurbished, warranty not stated",ar:"مجدد، الضمان غير مذكور"},tier:"N",s:"BlackMint",flag:{en:"Refurbished, yet priced above the new International unit (49,499).",ar:"مجدد، ومع ذلك سعره أعلى من الوحدة الجديدة الدولية (49,499)."}},
+  {r:"Jumia",p:54469,c:"Blue",u:"https://www.jumia.com.eg/apple-iphone-15-128gb-blue-tax-paid-warranty-2-years-134608812.html",ver:"",w:{en:"Seller states: Tax Paid, 2 years warranty",ar:"البائع يذكر: ضريبة مدفوعة، ضمان سنتين"},tier:"B",s:"2k Mobile"},
+  {r:"Jumia",p:57770,c:"Black",u:"https://www.jumia.com.eg/apple-iphone-15-128gb-5g-black-134594816.html",ver:"",w:{en:"No warranty stated",ar:"لا يوجد ضمان مذكور"},tier:"N",s:"Dream 2000 Marketplace"},
+  {r:"Jumia",p:57999,c:"Black",u:"https://www.jumia.com.eg/apple-iphone-15-128gb-black-official-warranty-131347395.html",ver:"",w:{en:"Listing states: Official Warranty",ar:"الإعلان يذكر: ضمان رسمي"},tier:"A",s:"2B For Information Technology Systems"},
+  {r:"2B",p:57999,c:"Black",u:"https://2b.com.eg/en/apple-iphone-15-128gb-black-official-warranty.html",ver:"",w:{en:"Listing states: Official Warranty",ar:"الإعلان يذكر: ضمان رسمي"},tier:"A",s:"2B"},
+  {r:"Jumia",p:58500,c:"Black",u:"https://www.jumia.com.eg/apple-iphone-15-128gb-black-tax-paid-warranty-2-years-abm-134343369.html",ver:"",w:{en:"Seller states: Tax Paid, 2 years warranty (ABM)",ar:"البائع يذكر: ضريبة مدفوعة، ضمان سنتين (ABM)"},tier:"B",s:"2k Mobile"}
+ ]},
+ {id:"i16", q:"iphone 16 128gb", name:{en:"iPhone 16 128GB",ar:"آيفون 16 سعة 128 جيجا"}, spec:{en:"5G, 128GB",ar:"5G، سعة 128 جيجا"},
+  alias:"iphone 16 ايفون 16 آيفون 16 apple", L:[
+  {r:"Noon",p:60086,c:"Black",u:"https://www.noon.com/egypt-en/refurbished-iphone-16-128gb-black-5g-with-facetime-international-version/N70401212V/p/",ver:"International",cond:"refurb",w:{en:"Refurbished, warranty not stated",ar:"مجدد، الضمان غير مذكور"},tier:"N",s:"BlackMint"},
+  {r:"Jumia",p:62488,c:"White Titanium",u:"https://www.jumia.com.eg/apple-iphone-16-single-sim-128gb8gb-ram-6.1-inch-smart-phone-5g-white-titanium-125249375.html",ver:"",w:{en:"Page states: No Warranty",ar:"الصفحة تذكر: لا يوجد ضمان"},tier:"N",s:"Dr.Mobile",flag:{en:"Title says \"White Titanium\", a finish the iPhone 16 does not come in. Check carefully.",ar:"العنوان يذكر \"White Titanium\" وهو لون لا يتوفر لآيفون 16. تحقق جيداً."}},
+  {r:"Jumia",p:62500,c:"Black",u:"https://www.jumia.com.eg/apple-iphone-16-128gb-black-5g-134526629.html",ver:"",w:{en:"Page states (in Arabic): general warranty from the agent",ar:"الصفحة تذكر: ضمان عام من الوكيل"},tier:"A",s:"Komrasupplies"},
+  {r:"Noon",p:62555,c:"Black",u:"https://www.noon.com/egypt-en/iphone-16-128gb-black-5g-with-facetime-middle-east-version/N70105548V/p/",ver:"Middle East",w:{en:"Page states: No warranty",ar:"الصفحة تذكر: لا يوجد ضمان"},tier:"N",s:"Dr.Mobile"},
+  {r:"Noon",p:63650,c:"White",u:"https://www.noon.com/egypt-en/iphone-16-128gb-white-5g-with-facetime-middle-east-version/N70105551V/p/",ver:"Middle East",w:{en:"Page states: 2 year manufacturer warranty",ar:"الصفحة تذكر: ضمان الشركة المصنعة سنتين"},tier:"A",s:"Dubai Phone Authorized seller"},
+  {r:"Jumia",p:66990,c:"Teal",u:"https://www.jumia.com.eg/apple-iphone-16-128gb-5g-teal-134600815.html",ver:"",w:{en:"No warranty stated",ar:"لا يوجد ضمان مذكور"},tier:"N",s:"Dream 2000 Marketplace"},
+  {r:"Amazon.eg",p:67000,c:"Pink",u:"https://www.amazon.eg/dp/B0DGJ8YZDF",ver:"",w:{en:"Listing states: Tax Paid, 2 Years Official Warranty",ar:"الإعلان يذكر: ضريبة مدفوعة، ضمان رسمي سنتين"},tier:"A"},
+  {r:"Jumia",p:67777,c:"Pink",u:"https://www.jumia.com.eg/apple-iphone-16-128gb-pink-tax-paid-warranty-2-years-133934244.html",ver:"",w:{en:"Seller states: Tax Paid, 2 years warranty",ar:"البائع يذكر: ضريبة مدفوعة، ضمان سنتين"},tier:"B"},
+  {r:"Noon",p:67777,c:"Pink",u:"https://www.noon.com/egypt-en/iphone-16-128gb-pink-5g-with-facetime-middle-east-version/N70105547V/p/",ver:"Middle East",w:{en:"No warranty stated on the page",ar:"لا يوجد ضمان مذكور في الصفحة"},tier:"N",s:"Techmart Marketplace"},
+  {r:"2B",p:67799,c:"Black",u:"https://2b.com.eg/en/apple-iphone-16-128gb-black-official-warranty.html",ver:"",w:{en:"Listing states: Official Warranty",ar:"الإعلان يذكر: ضمان رسمي"},tier:"A",s:"2B"},
+  {r:"Jumia",p:67799,c:"Black",u:"https://www.jumia.com.eg/apple-iphone-16-128gb-black-official-warranty-130238976.html",ver:"",w:{en:"Listing states: Official Warranty",ar:"الإعلان يذكر: ضمان رسمي"},tier:"A"},
+  {r:"Jumia",p:68500,c:"Black",u:"https://www.jumia.com.eg/apple-iphone-16-single-sim-128gb8gb-black-2years-warranty-by-abm-134538508.html",ver:"",w:{en:"Seller states: 2 years warranty by ABM",ar:"البائع يذكر: ضمان سنتين من ABM"},tier:"B"}
+ ]},
+ {id:"s26", q:"samsung galaxy s26 256gb", name:{en:"Samsung Galaxy S26 256GB",ar:"سامسونج جالاكسي S26 سعة 256 جيجا"}, spec:{en:"12GB RAM, 5G",ar:"رام 12 جيجا، 5G"},
+  alias:"samsung galaxy s26 جالكسي جالاكسي سامسونج s26 اس 26", L:[
+  {r:"Noon",p:49999,c:"White",u:"https://www.noon.com/egypt-en/galaxy-s26-dual-sim-white-12gb-ram-256gb-5g-middle-east-version/N70283841V/p/",ver:"Middle East",w:{en:"Page states: 1 year manufacturer warranty",ar:"الصفحة تذكر: ضمان الشركة المصنعة سنة"},tier:"A",s:"noon"},
+  {r:"Jumia",p:49999,c:"Cobalt Violet",u:"https://www.jumia.com.eg/samsung-galaxy-s26-6.9-12gb-ram256gb-rom-android-16-5g-violet-cobalt-violet-134237308.html",ver:"",w:{en:"No warranty stated",ar:"لا يوجد ضمان مذكور"},tier:"N"},
+  {r:"Amazon.eg",p:51999,c:"Black",u:"https://www.amazon.eg/dp/B0GQBZ32Y3",ver:"Local",w:{en:"Listing states: 1 Year Warranty / Local Version",ar:"الإعلان يذكر: ضمان سنة / نسخة محلية"},tier:"B"},
+  {r:"2B",p:53499,c:"Black",u:"https://2b.com.eg/en/samsung-galaxy-s26-12gb-ram-256gb-black.html",ver:"",w:{en:"No warranty stated",ar:"لا يوجد ضمان مذكور"},tier:"N",s:"2B"}
+ ]},
+ {id:"a56", q:"samsung galaxy a56 256gb", name:{en:"Samsung Galaxy A56 5G 256GB",ar:"سامسونج جالاكسي A56 سعة 256 جيجا"}, spec:{en:"8GB RAM, 5G",ar:"رام 8 جيجا، 5G"},
+  alias:"samsung galaxy a56 جالكسي جالاكسي سامسونج a56 ايه 56", L:[
+  {r:"Jumia",p:24999,c:"Light Gray",u:"https://www.jumia.com.eg/samsung-galaxy-a56-5g-android-smartphone-256gb-storage-8gb-ram-awesome-lightgray-6x-os-upgrades-large-display-long-battery-life-1-year-warrantylocal-version-134770501.html",ver:"Local",w:{en:"Seller states: 1 Year Warranty / Local Version",ar:"البائع يذكر: ضمان سنة / نسخة محلية"},tier:"B"},
+  {r:"Amazon.eg",p:25079,c:"Graphite",u:"https://www.amazon.eg/dp/B0DZHP3Q8M",ver:"Local",w:{en:"Listing states: 1 Year Warranty / Local Version",ar:"الإعلان يذكر: ضمان سنة / نسخة محلية"},tier:"B"},
+  {r:"Noon",p:25397,c:"Graphite",u:"https://www.noon.com/egypt-en/galaxy-a56-5g-dual-sim-awesome-graphite-8gb-ram-256gb-middle-east-version/N70158930V/p/",ver:"Middle East",w:{en:"Middle East version, local warranty not stated",ar:"نسخة الشرق الأوسط، الضمان المحلي غير مذكور"},tier:"B"},
+  {r:"Jumia",p:25999,c:"Graphite",u:"https://www.jumia.com.eg/samsung-galaxy-a56-5g-android-smartphone-256gb-storage-12gb-ram-awesome-graphite-6x-os-upgrades-large-display-long-battery-life-1-year-warrantylocal-version-134770502.html",ver:"Local",w:{en:"Seller states: 1 Year Warranty / Local Version",ar:"البائع يذكر: ضمان سنة / نسخة محلية"},tier:"B",flag:{en:"Title says 12GB RAM, other listings say 8GB. Confirm the model.",ar:"العنوان يذكر رام 12 جيجا بينما باقي الإعلانات 8 جيجا. تأكد من الموديل."}},
+  {r:"2B",p:25999,c:"Black",u:"https://2b.com.eg/en/samsung-galaxy-a56-8gb-ram-256gb-black.html",ver:"",w:{en:"No warranty stated",ar:"لا يوجد ضمان مذكور"},tier:"N",s:"2B"},
+  {r:"Jumia",p:26000,c:"Graphite",u:"https://www.jumia.com.eg/galaxy-a56-dual-sim-5g-256gb8gb-6.7-inches-mobile-phone-awesome-graphite-samsung-mpg3856262.html",ver:"",w:{en:"Sold by an official store (as labeled on the listing)",ar:"يباع من متجر رسمي (كما هو مكتوب في الإعلان)"},tier:"A"},
+  {r:"Amazon.eg",p:26856,c:"Olive",u:"https://www.amazon.eg/dp/B0DZHN839P",ver:"Local",w:{en:"Listing states: 1 Year Warranty / Local Version",ar:"الإعلان يذكر: ضمان سنة / نسخة محلية"},tier:"B"},
+  {r:"Noon",p:28105,c:"Light Gray",u:"https://www.noon.com/egypt-en/galaxy-a56-5g-dual-sim-awesome-light-gray-8gb-ram-256gb-middle-east-version/N70158928V/p/",ver:"Middle East",w:{en:"Middle East version, local warranty not stated",ar:"نسخة الشرق الأوسط، الضمان المحلي غير مذكور"},tier:"B"},
+  {r:"Noon",p:28348,c:"Olive",u:"https://www.noon.com/egypt-en/galaxy-a56-5g-dual-sim-awesome-olive-8gb-ram-256gb-middle-east-version/N70158929V/p/",ver:"Middle East",w:{en:"Middle East version, local warranty not stated",ar:"نسخة الشرق الأوسط، الضمان المحلي غير مذكور"},tier:"B"}
+ ]},
+ {id:"rn15", q:"redmi note 15 pro 256gb", name:{en:"Xiaomi Redmi Note 15 Pro 256GB",ar:"شاومي ريدمي نوت 15 برو سعة 256 جيجا"}, spec:{en:"12GB RAM, 5G",ar:"رام 12 جيجا، 5G"},
+  alias:"xiaomi redmi note 15 pro شاومي ريدمي نوت 15 برو", L:[
+  {r:"Noon",p:24450,c:"Titanium",u:"https://www.noon.com/egypt-en/redmi-note-15-pro-dual-sim-titanium-12gb-ram-256-5g-middle-east-version/N70286289V/p/",ver:"Middle East",w:{en:"Middle East version, local warranty not stated",ar:"نسخة الشرق الأوسط، الضمان المحلي غير مذكور"},tier:"B"},
+  {r:"Noon",p:24470,c:"Glacier Blue",u:"https://www.noon.com/egypt-en/redmi-note-15-pro-dual-sim-glacier-blue-12gb-ram-256-5g-middle-east-version/N70286287V/p/",ver:"Middle East",w:{en:"Middle East version, local warranty not stated",ar:"نسخة الشرق الأوسط، الضمان المحلي غير مذكور"},tier:"B"},
+  {r:"Noon",p:24927,c:"Black",u:"https://www.noon.com/egypt-en/redmi-note-15-pro-dual-sim-black-12gb-ram-256-5g-middle-east-version/N70286285V/p/",ver:"Middle East",w:{en:"Middle East version, local warranty not stated",ar:"نسخة الشرق الأوسط، الضمان المحلي غير مذكور"},tier:"B"},
+  {r:"2B",p:25999,c:"Black",u:"https://2b.com.eg/en/xiaomi-redmi-note-15-pro-5g-12gb-ram-256gb-black.html",ver:"",w:{en:"No warranty stated",ar:"لا يوجد ضمان مذكور"},tier:"N",s:"2B"}
+ ]}
+];
+
+// Listings whose seller and warranty wording were read from the product page itself on 2026-10-05 (24 of 38).
+var VERIFIED = {};
+["i15|Noon|49499|Black","i15|Noon|49500|Blue","i15|Noon|51800|Black","i15|Noon|53411|Black","i15|Jumia|54469|Blue","i15|Jumia|57770|Black","i15|Jumia|57999|Black","i15|Jumia|58500|Black","i15|2B|57999|Black",
+ "i16|Noon|60086|Black","i16|Noon|62555|Black","i16|Noon|63650|White","i16|Noon|67777|Pink","i16|Jumia|62488|White Titanium","i16|Jumia|62500|Black","i16|Jumia|66990|Teal","i16|2B|67799|Black","i16|Amazon.eg|67000|Pink",
+ "s26|Noon|49999|White","s26|2B|53499|Black","s26|Amazon.eg|51999|Black",
+ "a56|2B|25999|Black","a56|Amazon.eg|25079|Graphite","a56|Amazon.eg|26856|Olive"].forEach(function(k){VERIFIED[k]=1});
+
+// Listings whose title says nothing about warranty and whose page was not read yet: shown as "not read yet", never as "no warranty".
+var UNREAD = {};
+["s26|Jumia|49999|Cobalt Violet","a56|Noon|25397|Graphite","a56|Noon|28105|Light Gray","a56|Noon|28348|Olive",
+ "rn15|Noon|24450|Titanium","rn15|Noon|24470|Glacier Blue","rn15|Noon|24927|Black","rn15|2B|25999|Black"].forEach(function(k){UNREAD[k]=1});
+
+// Ratings as shown on the retailer's page. Noon and Amazon ratings are for the product, not for one seller.
+var RATING = {
+ "i15|Noon|49499|Black":[4.6,22398],"i15|Noon|49500|Blue":[4.6,22398],"i15|Noon|51800|Black":[4.6,22398],
+ "i16|Noon|62555|Black":[4.6,17341],"i16|Noon|63650|White":[4.6,17341],"i16|Amazon.eg|67000|Pink":[4.5,2639],
+ "s26|Noon|49999|White":[4.7,8537],"s26|Amazon.eg|51999|Black":[4.4,35],
+ "a56|Amazon.eg|25079|Graphite":[4.4,629],"a56|Amazon.eg|26856|Olive":[4.4,629]
+};
+
+var BYKEY = {};
+P.forEach(function(prod){
+  prod.L.forEach(function(x){
+    var k = [prod.id, x.r, x.p, x.c].join("|");
+    x.key = k; x.prod = prod; BYKEY[k] = x;
+    x.v = !!VERIFIED[k];
+    if(UNREAD[k]){
+      x.tier = "U";
+      x.w = {en:"Warranty not read from the product page yet", ar:"لم نقرأ الضمان من صفحة المنتج بعد"};
+    }
+    if(RATING[k]) x.rt = RATING[k];
+  });
+});
+
+var T = {
+ en:{dir:"ltr",lang:"العربية",brand:"Asly",back:"Back",
+  hero:"The best price, with the warranty shown.",sub:"Search a phone and compare prices and warranty across stores.",
+  ph:"Search a phone, e.g. iPhone 15",go:"Search",
+  trust:["We read each seller's warranty wording from the product page.","We show who sells it, because warranty depends on the seller.","We never call a phone genuine. We show what the seller states."],
+  tiers:{A:"Official or manufacturer warranty",B:"Other warranty stated",N:"No warranty",U:"Not read yet"},
+  all:"All",cheap:"Cheapest",bestA:"Cheapest with a stated manufacturer or official warranty",bestB:"Cheapest with another stated warranty",egp:"EGP",
+  safeA:function(d,pc){return pc<1 ? "A stated manufacturer or official warranty costs only "+d+" EGP more (less than 1%)." : "A stated manufacturer or official warranty costs "+d+" EGP more ("+pc+"%)."},
+  tailN:" The cheapest listing says no warranty on its page.",tailU:" The cheapest listing's warranty has not been read yet.",tailB:" The cheapest listing states a different warranty.",
+  tailFlag:" The cheapest listing has a title detail that does not fit this phone, see its card.",
+  same:"The cheapest listing also states an official or manufacturer warranty.",
+  onlyB:function(r,p){return "No listing states an official or manufacturer warranty yet. Cheapest with another stated warranty: "+r+", "+p+" EGP."},
+  none:"No listing states a warranty yet.",refurbNote:"Refurbished listings are shown below but not counted here.",
+  count:function(n){return n+" listings, cheapest first. Checked 5 Oct 2026."},
+  open:function(r){return "Open on "+r},openShort:"Open",seller:function(s){return "Seller: "+(s||"not read yet")},
+  versions:{"International":"International","Middle East":"Middle East","Local":"Local"},
+  noResult:function(q){return "No phone found for \""+q+"\"."},tryThese:"Try: iPhone 15, iPhone 16, Galaxy S26, Galaxy A56, Redmi Note 15 Pro.",askPhone:"Ask us to add a phone",
+  stale:function(n){return "Prices were last checked "+n+" days ago. Please confirm on the store's site before buying."},
+  down:function(r){return "We could not read "+r+" today. Its prices below are from the last time we could."},
+  sh:{seller:"Seller",version:"Version",cond:"Condition",rating:"Rating",source:"Warranty text read from",checked:"Checked",
+      newc:"New (as listed)",refc:"Refurbished",notread:"Not read yet",page:"Product page",search:"Search results listing (product page not read yet)",
+      rate:function(a,b,r){return a+" from "+b.toLocaleString("en-US")+" ratings on "+r+" (the product, all sellers)"},date:"5 Oct 2026",
+      cantTitle:"What we cannot check",cant:"We cannot tell if a phone is original or if a warranty will be honored. Before paying:",
+      tips:["Ask the seller for an invoice showing the serial or IMEI","Check that serial on the brand's own coverage page, if it has one","Check the return policy for phones"],close:"Close",report:"Something wrong? Report a mistake"},
+  navHow:"How we read warranty",navReport:"Report a mistake",navStores:"For stores",
+  foot:"Prices and warranty wording as read on 5 Oct 2026. Confirm on the store's site before buying. This is a prototype for testing, with 5 phones.",
+  examples:["iPhone 15","iPhone 16","Galaxy S26","Galaxy A56","Redmi Note 15 Pro"],
+  tbl:{store:"Store",seller:"Seller",price:"Price (EGP)",warranty:"Warranty",ver:"Version, condition",rating:"Rating",filters:"Filters",
+       fWarranty:"Warranty",fCond:"Condition",fStore:"Store",fVer:"Version",new:"New",refurb:"Refurbished",unspecified:"Not stated",hl:"Highlighted row: cheapest with a stated manufacturer or official warranty. Click a row for details."},
+  how:{title:"How we read warranty",
+    tiers:[["A","Official","The listing or its page states an official, manufacturer or agent warranty.","(Official Warranty) | 2 year manufacturer warranty | ضمان عام من الوكيل"],
+           ["B","Other","A warranty is stated, but not an official one.","Tax Paid, 2 years warranty | 1 Year Warranty / Local Version"],
+           ["N","None","Nothing is stated, or the page says there is no warranty.","No warranty"],
+           ["U","Not read","The title says nothing about warranty and we have not read the product page yet. We never treat this as no warranty.",""]],
+    h2:"The seller matters",p2:"Two sellers can sell the same phone on the same store with different warranty. On Noon, one Middle East iPhone 16 says No warranty and another says 2 year manufacturer warranty.",
+    h3:"Cheapest first, and the cost of a warranty",p3:"We list the cheapest first. The box at the top shows what a stated warranty costs, so you can decide. Refurbished phones are shown but not counted in that box.",
+    h4:"What we do not do",p4:"We do not check that a phone is original, or that a warranty will be honored. We show what the seller writes.",
+    h5:"Where the data comes from",p5:"In this test version the data was collected by hand from public store pages on 5 Oct 2026. Prices change, so confirm on the store's site. Later, a reader called AslyBot will do this, following each store's rules."},
+  rep:{title:"Report a mistake",about:"About this listing",what:"What is wrong?",
+    opts:{price:"The price is different on the store",warranty:"The warranty wording is different",stock:"It is out of stock",wrong:"This is a different phone",other:"Something else",request:"I want a phone that is not here"},
+    which:"Which phone?",see:"What did you see on the store's page?",seeph:"For example: the price is 50,200 today",contact:"Contact (optional)",contactph:"Email or phone, only if you want a reply",
+    send:"Create report",done:"Your report is ready",
+    doneHelp:"This test version does not send reports by itself. Copy it and send it to the person who gave you this page.",copy:"Copy report",copied:"Copied",mail:"Send by email",
+    note:"We do not store or share what you write here.",lines:{head:"Asly report",listing:"Listing",problem:"Problem",details:"Details",contact:"Contact",page:"Prices checked"}},
+  bot:{title:"AslyBot",intro:"Asly is a price and warranty comparison for phones in Egypt, now in testing. AslyBot is the reader Asly will use to read public product pages.",
+    h1:"What it reads",p1:"Public product pages only: price, availability, seller, condition, warranty wording, rating and count. It does not copy photos, descriptions or review text.",
+    h2:"How it behaves",li:["Identifies itself as AslyBot","Follows your robots.txt","At most one request every 6 seconds per site","Stops immediately if a site blocks it"],
+    h3:"Contact and opt out",contact:"Write to us and we will stop reading your site.",placeholder:"[contact email to be set]",
+    h4:"Store owners",p4:"Want your products listed accurately? Send us a product feed and we will use it instead of reading pages."}
+ },
+ ar:{dir:"rtl",lang:"English",brand:"أصلي",back:"رجوع",
+  hero:"أحسن سعر، والضمان واضح.",sub:"ابحث عن موبايل وقارن الأسعار والضمان بين المتاجر.",
+  ph:"ابحث عن موبايل، مثلاً آيفون 15",go:"بحث",
+  trust:["نقرأ ضمان كل بائع من صفحة المنتج.","نعرض اسم البائع، لأن الضمان يختلف حسب البائع.","لا نقول إن المنتج أصلي. نعرض ما يذكره البائع."],
+  tiers:{A:"ضمان رسمي أو من الشركة",B:"ضمان آخر مذكور",N:"بلا ضمان",U:"لم يُقرأ بعد"},
+  all:"الكل",cheap:"الأرخص",bestA:"الأرخص بضمان رسمي أو من الشركة",bestB:"الأرخص بضمان آخر مذكور",egp:"ج.م",
+  safeA:function(d,pc){return pc<1 ? "الضمان الرسمي أو من الشركة المذكور يكلّف "+d+" ج.م فقط أكثر (أقل من 1%)." : "الضمان الرسمي أو من الشركة المذكور يكلّف "+d+" ج.م أكثر ("+pc+"%)."},
+  tailN:" أرخص إعلان يذكر في صفحته أنه بلا ضمان.",tailU:" لم نقرأ ضمان أرخص إعلان بعد.",tailB:" أرخص إعلان يذكر ضماناً آخر.",
+  tailFlag:" عنوان أرخص إعلان فيه تفصيلة لا تناسب هذا الموبايل، راجع بطاقته.",
+  same:"أرخص إعلان يذكر أيضاً ضماناً رسمياً أو من الشركة.",
+  onlyB:function(r,p){return "لا يوجد إعلان يذكر ضماناً رسمياً أو من الشركة حتى الآن. الأرخص بضمان آخر مذكور: "+r+"، "+p+" ج.م."},
+  none:"لا يوجد إعلان يذكر ضماناً حتى الآن.",refurbNote:"الإعلانات المجددة تظهر أدناه ولا تُحسب هنا.",
+  count:function(n){return n+" إعلان، من الأرخص. آخر فحص 5 أكتوبر 2026."},
+  open:function(r){return "افتح في "+r},openShort:"افتح",seller:function(s){return "البائع: "+(s||"لم يُقرأ بعد")},
+  versions:{"International":"دولية","Middle East":"شرق أوسط","Local":"محلية"},
+  noResult:function(q){return "لم نجد موبايل باسم \""+q+"\"."},tryThese:"جرّب: آيفون 15، آيفون 16، جالاكسي S26، جالاكسي A56، ريدمي نوت 15 برو.",askPhone:"اطلب إضافة موبايل",
+  stale:function(n){var d = n===1?"يوم":n===2?"يومين":(n<=10?n+" أيام":n+" يوماً"); return "آخر فحص للأسعار منذ "+d+". تأكد من موقع المتجر قبل الشراء."},
+  down:function(r){return "لم نستطع قراءة "+r+" اليوم. أسعارها أدناه من آخر مرة استطعنا فيها."},
+  sh:{seller:"البائع",version:"النسخة",cond:"الحالة",rating:"التقييم",source:"نص الضمان من",checked:"آخر فحص",
+      newc:"جديد (كما في الإعلان)",refc:"مجدد",notread:"لم يُقرأ بعد",page:"صفحة المنتج",search:"قائمة نتائج البحث (لم تُقرأ صفحة المنتج بعد)",
+      rate:function(a,b,r){return a+" من "+b.toLocaleString("en-US")+" تقييم على "+r+" (للمنتج، كل البائعين)"},date:"5 أكتوبر 2026",
+      cantTitle:"ما لا نستطيع التحقق منه",cant:"لا نستطيع معرفة هل الموبايل أصلي أو هل سيُنفَّذ الضمان. قبل الدفع:",
+      tips:["اطلب من البائع فاتورة بها الرقم التسلسلي أو IMEI","تحقق من الرقم في صفحة التغطية الرسمية للشركة إن وجدت","راجع سياسة الاسترجاع للموبايلات"],close:"إغلاق",report:"في خطأ؟ أبلغ عنه"},
+  navHow:"كيف نقرأ الضمان",navReport:"الإبلاغ عن خطأ",navStores:"للمتاجر",
+  foot:"الأسعار ونص الضمان كما قُرئت يوم 5 أكتوبر 2026. تأكد من موقع المتجر قبل الشراء. هذه نسخة تجريبية للاختبار فيها 5 موبايلات.",
+  examples:["آيفون 15","آيفون 16","جالاكسي S26","جالاكسي A56","ريدمي نوت 15 برو"],
+  tbl:{store:"المتجر",seller:"البائع",price:"السعر (ج.م)",warranty:"الضمان",ver:"النسخة والحالة",rating:"التقييم",filters:"الفلاتر",
+       fWarranty:"الضمان",fCond:"الحالة",fStore:"المتجر",fVer:"النسخة",new:"جديد",refurb:"مجدد",unspecified:"غير مذكورة",hl:"الصف المظلل: الأرخص بضمان رسمي أو من الشركة. اضغط على صف لرؤية التفاصيل."},
+  how:{title:"كيف نقرأ الضمان",
+    tiers:[["A","رسمي","الإعلان أو صفحته يذكر ضماناً رسمياً أو من الشركة أو الوكيل.","(Official Warranty) | 2 year manufacturer warranty | ضمان عام من الوكيل"],
+           ["B","آخر","يذكر ضماناً، لكنه ليس رسمياً.","Tax Paid, 2 years warranty | 1 Year Warranty / Local Version"],
+           ["N","لا يوجد","لا شيء مذكور، أو تقول الصفحة إنه لا يوجد ضمان.","No warranty"],
+           ["U","لم يُقرأ","العنوان لا يذكر ضماناً ولم نقرأ صفحة المنتج بعد. لا نعتبره أبداً بلا ضمان.",""]],
+    h2:"البائع مهم",p2:"بائعان قد يبيعان نفس الموبايل في نفس المتجر بضمان مختلف. على Noon، آيفون 16 شرق أوسط يقول عنه بائع إنه بلا ضمان ويقول آخر إن له ضمان الشركة سنتين.",
+    h3:"الأرخص أولاً، وكلفة الضمان",p3:"نعرض الأرخص أولاً. والصندوق في الأعلى يوضح كم يكلّف الضمان المذكور لتقرر بنفسك. الموبايلات المجددة تظهر لكنها لا تُحسب في ذلك الصندوق.",
+    h4:"ما لا نفعله",p4:"لا نتحقق من أن الموبايل أصلي ولا من تنفيذ الضمان. نعرض ما يكتبه البائع.",
+    h5:"مصدر البيانات",p5:"في هذه النسخة التجريبية جمعنا البيانات يدوياً من صفحات المتاجر العامة يوم 5 أكتوبر 2026. الأسعار تتغير، فتأكد من موقع المتجر. لاحقاً سيقوم بذلك قارئ اسمه AslyBot، ملتزماً بقواعد كل متجر."},
+  rep:{title:"الإبلاغ عن خطأ",about:"بخصوص هذا الإعلان",what:"ما الخطأ؟",
+    opts:{price:"السعر مختلف في المتجر",warranty:"نص الضمان مختلف",stock:"غير متوفر",wrong:"هذا موبايل مختلف",other:"شيء آخر",request:"أريد موبايل غير موجود هنا"},
+    which:"أي موبايل؟",see:"ماذا رأيت في صفحة المتجر؟",seeph:"مثلاً: السعر اليوم 50,200",contact:"وسيلة تواصل (اختياري)",contactph:"إيميل أو رقم، فقط إذا أردت رداً",
+    send:"إنشاء البلاغ",done:"بلاغك جاهز",
+    doneHelp:"هذه النسخة التجريبية لا ترسل البلاغات تلقائياً. انسخه وأرسله للشخص الذي أعطاك هذه الصفحة.",copy:"انسخ البلاغ",copied:"تم النسخ",mail:"أرسل بالإيميل",
+    note:"لا نحفظ ولا نشارك ما تكتبه هنا.",lines:{head:"بلاغ أصلي",listing:"الإعلان",problem:"المشكلة",details:"التفاصيل",contact:"التواصل",page:"تاريخ فحص الأسعار"}},
+  bot:{title:"AslyBot",intro:"أصلي موقع لمقارنة أسعار وضمان الموبايلات في مصر، وهو الآن قيد التجربة. AslyBot هو القارئ الذي سيستخدمه أصلي لقراءة صفحات المنتجات العامة.",
+    h1:"ماذا يقرأ",p1:"صفحات المنتجات العامة فقط: السعر والتوفر والبائع والحالة ونص الضمان والتقييم وعدده. لا ينسخ الصور أو الأوصاف أو نصوص التقييمات.",
+    h2:"كيف يتصرف",li:["يعرّف نفسه باسم AslyBot","يلتزم بملف robots.txt الخاص بكم","طلب واحد كحد أقصى كل 6 ثوانٍ لكل موقع","يتوقف فوراً إذا حجبه الموقع"],
+    h3:"التواصل وإيقاف القراءة",contact:"راسلونا وسنوقف قراءة موقعكم.",placeholder:"[بريد التواصل سيُحدد لاحقاً]",
+    h4:"أصحاب المتاجر",p4:"تريدون ظهور منتجاتكم بدقة؟ أرسلوا لنا ملف المنتجات وسنستخدمه بدلاً من قراءة الصفحات."}
+ }
+};
+
+var lang = "ar";
+try{ var sl = localStorage.getItem("asly-lang"); if(sl==="en"||sl==="ar") lang = sl; }catch(e){}
+var state = {q:"", pid:null, tier:"all", v:"", ref:"", fl:null};
+var wideMQ = window.matchMedia("(min-width:900px)");
+var $ = function(id){return document.getElementById(id)};
+function el(tag,cls,txt){var e=document.createElement(tag); if(cls)e.className=cls; if(txt!=null)e.textContent=txt; return e}
+function fmt(n){return n.toLocaleString("en-US")}
+
+function norm(s){
+  return String(s).toLowerCase()
+    .replace(/[ً-ٟـ]/g,"")
+    .replace(/[آأإ]/g,"ا").replace(/ى/g,"ي").replace(/ة/g,"ه")
+    .replace(/[٠-٩]/g,function(d){return "٠١٢٣٤٥٦٧٨٩".indexOf(d)})
+    .replace(/\s+/g," ").trim();
+}
+function search(q){
+  var t = norm(q).split(" ").filter(Boolean);
+  if(!t.length) return [];
+  return P.filter(function(p){
+    var h = norm(p.alias+" "+p.name.en+" "+p.name.ar);
+    return t.every(function(x){return h.indexOf(x)>-1});
+  });
+}
+
+function readHash(){
+  var h = location.hash.replace(/^#/,""), o = {};
+  h.split("&").forEach(function(kv){ if(!kv) return; var i = kv.indexOf("="); if(i<0) return; o[decodeURIComponent(kv.slice(0,i))] = decodeURIComponent(kv.slice(i+1)); });
+  state.q = o.q || ""; state.pid = o.p || null; state.v = o.v || ""; state.ref = o.ref || ""; state.tier = "all"; state.fl = null;
+}
+function setHash(h){
+  if(location.hash === h || (!h && !location.hash)){ readHash(); render(); }
+  else location.hash = h;
+}
+function go(q,pid){ setHash(q ? "#q="+encodeURIComponent(q)+(pid?"&p="+pid:"") : ""); }
+function nav(v,ref){ setHash("#v="+v+(ref?"&ref="+encodeURIComponent(ref):"")); }
+
+function daysSince(iso){ return Math.floor((Date.now() - Date.parse(iso+"T12:00:00Z")) / 86400000); }
+
+function render(){
+  var t = T[lang];
+  document.documentElement.lang = lang; document.documentElement.dir = t.dir;
+  $("lang").textContent = t.lang; $("logo").textContent = t.brand; $("foot").textContent = t.foot;
+  document.title = lang==="ar" ? "أصلي | Asly" : "Asly | أصلي";
+  closeSheet();
+  var m = $("main"); m.textContent = "";
+  $("wrap").classList.remove("wide");
+  renderNav();
+  if(state.v==="how") return renderHow(m);
+  if(state.v==="report") return renderReport(m);
+  if(state.v==="bot") return renderBot(m);
+  renderSearchPage(m);
+}
+
+function renderNav(){
+  var t = T[lang], n = $("nav"); n.textContent = "";
+  var links = [["how",t.navHow],["report",t.navReport]];
+  if(CONTACT_EMAIL) links.push(["bot",t.navStores]);   // the stores page stays unlinked until a real contact is set
+  links.forEach(function(p){
+    var a = el("a",null,p[1]); a.href = "#v="+p[0]; n.appendChild(a);
+  });
+}
+
+function backLink(m){
+  var b = el("button","back","< "+T[lang].back); b.type="button";
+  b.onclick = function(){ if(history.length>1) history.back(); else go(""); };
+  m.appendChild(b);
+}
+
+/* ---------- search, results ---------- */
+function searchForm(){
+  var t = T[lang];
+  var form = el("form","s"); form.setAttribute("role","search");
+  var inp = el("input"); inp.type="search"; inp.id="q"; inp.placeholder=t.ph; inp.value=state.q; inp.setAttribute("aria-label",t.ph); inp.autocomplete="off";
+  var btn = el("button","go",t.go); btn.type="submit";
+  form.appendChild(inp); form.appendChild(btn);
+  form.addEventListener("submit",function(e){e.preventDefault(); go(inp.value.trim())});
+  return form;
+}
+
+function renderSearchPage(m){
+  var t = T[lang];
+  if(!state.q){
+    m.appendChild(el("div","hero",t.hero));
+    m.appendChild(el("p","sub",t.sub));
+    m.appendChild(searchForm());
+    var ex = el("div","chips");
+    t.examples.forEach(function(x){ var b = el("button","chip",x); b.type="button"; b.onclick=function(){go(x)}; ex.appendChild(b); });
+    m.appendChild(ex);
+    var tr = el("div","trust");
+    t.trust.forEach(function(x,i){ var d = el("div"); d.appendChild(el("span","dot",String(i+1))); d.appendChild(el("span",null,x)); tr.appendChild(d); });
+    m.appendChild(tr);
+    return;
+  }
+  m.appendChild(searchForm());
+  var found = search(state.q);
+  if(!found.length){
+    m.appendChild(el("p","empty",t.noResult(state.q)));
+    m.appendChild(el("p","small",t.tryThese));
+    var b = el("button","go sec",t.askPhone); b.type="button"; b.style.marginTop="10px";
+    b.onclick = function(){ nav("report","request:"+state.q); };
+    m.appendChild(b);
+    return;
+  }
+  var cur = found.filter(function(p){return p.id===state.pid})[0] || found[0];
+  if(found.length>1){
+    var pick = el("div","chips");
+    found.forEach(function(p){
+      var b2 = el("button","chip",p.name[lang]); b2.type="button"; b2.setAttribute("aria-pressed",String(p===cur));
+      b2.onclick=function(){go(state.q,p.id)}; pick.appendChild(b2);
+    });
+    m.appendChild(pick);
+  }
+  var days = daysSince(CHECKED);
+  if(days>=2) m.appendChild(el("div","banner",t.stale(days)));
+  var down = {}; SOURCES_DOWN.forEach(function(r){ if(cur.L.some(function(x){return x.r===r})) down[r]=1; });
+  Object.keys(down).forEach(function(r){ m.appendChild(el("div","banner info",t.down(r))); });
+  renderProduct(m, cur);
+}
+
+function summary(prod){
+  var t = T[lang];
+  var L = prod.L.slice().sort(function(a,b){return a.p-b.p});
+  var pool = L.filter(function(x){return x.cond!=="refurb"});
+  var hasRefurb = pool.length !== L.length;
+  var cheapest = pool[0];
+  var best = pool.filter(function(x){return x.tier==="A"})[0], isA = true;
+  if(!best){ best = pool.filter(function(x){return x.tier==="B"})[0]; isA = false; }
+  var s = el("section","sum");
+  s.appendChild(el("h2",null,prod.name[lang]));
+  s.appendChild(el("div","spec",prod.spec[lang]));
+  var r1 = el("div","row"); r1.appendChild(el("span",null,t.cheap+": "+cheapest.r)); r1.appendChild(el("b",null,fmt(cheapest.p)+" "+t.egp)); s.appendChild(r1);
+  if(best){
+    var r2 = el("div","row"); r2.appendChild(el("span",null,(isA?t.bestA:t.bestB)+": "+best.r)); r2.appendChild(el("b",null,fmt(best.p)+" "+t.egp)); s.appendChild(r2);
+    var d = best.p - cheapest.p, pc = Math.round(d/cheapest.p*1000)/10, msg, warn = false;
+    if(!isA){ msg = t.onlyB(best.r, fmt(best.p)); warn = true; }
+    else if(d===0) msg = t.same;
+    else {
+      msg = t.safeA(fmt(d), pc);
+      msg += cheapest.tier==="N" ? t.tailN : cheapest.tier==="U" ? t.tailU : cheapest.tier==="B" ? t.tailB : "";
+    }
+    if(cheapest.flag) msg += t.tailFlag;
+    s.appendChild(el("div","safe"+(warn?" warn":""),msg));
+  } else {
+    s.appendChild(el("div","safe warn",t.none));
+  }
+  if(hasRefurb) s.appendChild(el("div","small",t.refurbNote));
+  return {node:s, L:L, best:best, isA:isA};
+}
+
+function verText(x){ var t = T[lang]; return x.ver ? (t.versions[x.ver]||x.ver) : ""; }
+
+function renderProduct(m, prod){
+  var sm = summary(prod);
+  m.appendChild(sm.node);
+  if(wideMQ.matches) renderWide(m, prod, sm); else renderCards(m, prod, sm);
+}
+
+function renderCards(m, prod, sm){
+  var t = T[lang], L = sm.L;
+  var tiers = ["A","B","N","U"].filter(function(k){return L.some(function(x){return x.tier===k})});
+  var f = el("div","chips");
+  ["all"].concat(tiers).forEach(function(k){
+    var b = el("button","chip",k==="all"?t.all:t.tiers[k]); b.type="button"; b.setAttribute("aria-pressed",String(state.tier===k));
+    b.onclick=function(){state.tier=k; render()}; f.appendChild(b);
+  });
+  m.appendChild(f);
+  var shown = L.filter(function(x){return state.tier==="all"||x.tier===state.tier});
+  m.appendChild(el("p","small",t.count(shown.length)));
+  var list = el("div","list");
+  shown.forEach(function(x){
+    var it = el("article","item"); it.tabIndex = 0; it.setAttribute("role","button");
+    var top = el("div","top");
+    top.appendChild(el("span","store",x.r));
+    var pr = el("span","price",fmt(x.p)+" "); pr.appendChild(el("small",null,t.egp)); top.appendChild(pr);
+    it.appendChild(top);
+    var ver = verText(x);
+    it.appendChild(el("div","meta",t.seller(x.s)+(ver||x.c?" | ":"")+[ver,x.c].filter(Boolean).join(", ")));
+    var bd = el("div");
+    bd.appendChild(el("span","badge "+x.tier,x.w[lang]));
+    if(x.cond==="refurb") bd.appendChild(el("span","badge c",t.sh.refc));
+    it.appendChild(bd);
+    if(x.flag) it.appendChild(el("div","flag","! "+x.flag[lang]));
+    var open = function(){openSheet(x)};
+    it.addEventListener("click",open);
+    it.addEventListener("keydown",function(e){ if(e.key==="Enter"||e.key===" "){e.preventDefault(); open()} });
+    list.appendChild(it);
+  });
+  m.appendChild(list);
+}
+
+function newFilters(L){
+  var f = {tier:{}, cond:{new:true,refurb:false}, store:{}, ver:{}};
+  L.forEach(function(x){ f.tier[x.tier]=true; f.store[x.r]=true; f.ver[x.ver||""]=true; });
+  return f;
+}
+function passes(x,f){ return f.tier[x.tier] && (x.cond==="refurb" ? f.cond.refurb : f.cond.new) && f.store[x.r] && f.ver[x.ver||""]; }
+
+function renderWide(m, prod, sm){
+  var t = T[lang], tb = t.tbl, L = sm.L;
+  $("wrap").classList.add("wide");
+  if(!state.fl) state.fl = newFilters(L);
+  var f = state.fl;
+  var layout = el("div","layout");
+  var side = el("aside","side");
+  side.appendChild(el("h4",null,tb.filters));
+  function group(title, items, getter, setter){
+    side.appendChild(el("h4",null,title));
+    items.forEach(function(it){
+      var lab = el("label","chk"); var cb = el("input"); cb.type="checkbox"; cb.checked = !!getter(it.k);
+      cb.onchange = function(){ setter(it.k, cb.checked); render(); };
+      lab.appendChild(cb); lab.appendChild(el("span",null,it.label)); side.appendChild(lab);
+    });
+  }
+  var present = function(arr){ return arr.filter(function(v,i,a){return a.indexOf(v)===i}) };
+  group(tb.fWarranty, present(L.map(function(x){return x.tier})).sort().map(function(k){return {k:k,label:t.tiers[k]}}), function(k){return f.tier[k]}, function(k,v){f.tier[k]=v});
+  group(tb.fCond, [{k:"new",label:tb.new},{k:"refurb",label:tb.refurb}], function(k){return f.cond[k]}, function(k,v){f.cond[k]=v});
+  group(tb.fStore, present(L.map(function(x){return x.r})).map(function(r){return {k:r,label:r}}), function(k){return f.store[k]}, function(k,v){f.store[k]=v});
+  group(tb.fVer, present(L.map(function(x){return x.ver||""})).map(function(v){return {k:v,label:v?(t.versions[v]||v):tb.unspecified}}), function(k){return f.ver[k]}, function(k,v){f.ver[k]=v});
+  layout.appendChild(side);
+
+  var right = el("div");
+  var shown = L.filter(function(x){return passes(x,f)});
+  right.appendChild(el("p","small",t.count(shown.length)));
+  var table = el("table");
+  var hr = el("tr");
+  [tb.store,tb.seller,tb.price,tb.warranty,tb.ver,tb.rating,""].forEach(function(h){ hr.appendChild(el("th",null,h)); });
+  var thead = el("thead"); thead.appendChild(hr); table.appendChild(thead);
+  var tbody = el("tbody");
+  shown.forEach(function(x){
+    var tr = el("tr", sm.best===x && sm.isA ? "best" : ""); tr.tabIndex = 0; tr.setAttribute("role","button");
+    tr.appendChild(el("td",null,x.r));
+    tr.appendChild(el("td",null,x.s || t.sh.notread));
+    tr.appendChild(el("td","pc",fmt(x.p)));
+    var tw = el("td"); tw.appendChild(el("span","badge "+x.tier,x.w[lang])); if(x.flag) tw.appendChild(el("div","flag","! "+x.flag[lang])); tr.appendChild(tw);
+    var tv = el("td",null,[verText(x),x.c].filter(Boolean).join(", ")); if(x.cond==="refurb") tv.appendChild(el("span","badge c",t.sh.refc)); tr.appendChild(tv);
+    tr.appendChild(el("td",null,x.rt ? x.rt[0]+" ("+fmt(x.rt[1])+")" : "-"));
+    var ta = el("td"); var a = el("a","open",t.openShort); a.href = x.u; a.target="_blank"; a.rel="noopener noreferrer"; a.setAttribute("aria-label",t.open(x.r));
+    a.addEventListener("click",function(e){e.stopPropagation()}); ta.appendChild(a); tr.appendChild(ta);
+    var open = function(){openSheet(x)};
+    tr.addEventListener("click",open);
+    tr.addEventListener("keydown",function(e){ if((e.key==="Enter"||e.key===" ") && e.target===tr){e.preventDefault(); open()} });
+    tbody.appendChild(tr);
+  });
+  table.appendChild(tbody); right.appendChild(table);
+  right.appendChild(el("p","small",tb.hl));
+  layout.appendChild(right);
+  m.appendChild(layout);
+}
+
+/* ---------- sheet ---------- */
+var lastFocus = null;
+function openSheet(x){
+  var t = T[lang], sh = t.sh;
+  lastFocus = document.activeElement;
+  var layer = $("layer"); layer.textContent = "";
+  var dim = el("div","dim"); dim.onclick = closeSheet; layer.appendChild(dim);
+  var s = el("div","sheet"); s.setAttribute("role","dialog"); s.setAttribute("aria-modal","true"); s.setAttribute("aria-label",x.r+" "+fmt(x.p));
+  var cl = el("button","close",sh.close); cl.type="button"; cl.onclick = closeSheet; s.appendChild(cl);
+  s.appendChild(el("div","grab"));
+  var top = el("div","top"); top.appendChild(el("span","store",x.r));
+  var pr = el("span","price",fmt(x.p)+" "); pr.appendChild(el("small",null,t.egp)); top.appendChild(pr); s.appendChild(top);
+  var bd = el("div"); bd.appendChild(el("span","badge "+x.tier,x.w[lang])); if(x.cond==="refurb") bd.appendChild(el("span","badge c",sh.refc)); s.appendChild(bd);
+  if(x.flag) s.appendChild(el("div","flag","! "+x.flag[lang]));
+  var kv = el("div","kv");
+  function kvp(k,v){ kv.appendChild(el("span",null,k)); kv.appendChild(el("span",null,v)); }
+  kvp(sh.seller, x.s || sh.notread);
+  kvp(sh.version, x.ver ? verText(x) : sh.notread);
+  kvp(sh.cond, x.cond==="refurb" ? sh.refc : sh.newc);
+  if(x.rt) kvp(sh.rating, sh.rate(x.rt[0], x.rt[1], x.r));
+  kvp(sh.source, x.v ? sh.page : sh.search);
+  kvp(sh.checked, sh.date);
+  s.appendChild(kv);
+  var co = el("div","callout"); co.appendChild(el("b",null,sh.cantTitle)); co.appendChild(el("span",null,sh.cant));
+  var ul = el("ul"); sh.tips.forEach(function(x2){ ul.appendChild(el("li",null,x2)); }); co.appendChild(ul); s.appendChild(co);
+  var a = el("a","buy",t.open(x.r)); a.href = x.u; a.target = "_blank"; a.rel = "noopener noreferrer"; s.appendChild(a);
+  var links = el("div","sheetlinks"); var ra = el("a",null,sh.report); ra.href = "#v=report&ref="+encodeURIComponent(x.key); links.appendChild(ra); s.appendChild(links);
+  layer.appendChild(s);
+  document.body.style.overflow = "hidden";
+  cl.focus();
+}
+function closeSheet(){
+  var layer = $("layer");
+  if(!layer.firstChild) return;
+  layer.textContent = "";
+  document.body.style.overflow = "";
+  if(lastFocus && lastFocus.focus) { try{ lastFocus.focus(); }catch(e){} }
+}
+document.addEventListener("keydown",function(e){ if(e.key==="Escape") closeSheet(); });
+
+/* ---------- screen 4: how we read warranty ---------- */
+function renderHow(m){
+  var h = T[lang].how;
+  backLink(m);
+  m.appendChild(el("h2","pg",h.title));
+  h.tiers.forEach(function(r){
+    var row = el("div","tier"); row.appendChild(el("span","badge "+r[0],r[1]));
+    var d = el("div"); d.appendChild(el("div",null,r[2])); if(r[3]) d.appendChild(el("div","ex",r[3])); row.appendChild(d); m.appendChild(row);
+  });
+  [[h.h2,h.p2],[h.h3,h.p3],[h.h4,h.p4],[h.h5,h.p5]].forEach(function(p){ m.appendChild(el("h3",null,p[0])); m.appendChild(el("p",null,p[1])); });
+}
+
+/* ---------- screen 5: report a mistake ---------- */
+function renderReport(m){
+  var t = T[lang], r = t.rep;
+  backLink(m);
+  m.appendChild(el("h2","pg",r.title));
+  var ref = state.ref, listing = null, wanted = "";
+  if(ref.indexOf("request:")===0){ wanted = ref.slice(8); ref = ""; }
+  if(ref && BYKEY[ref]) listing = BYKEY[ref];
+  var optKeys = listing ? ["price","warranty","stock","wrong","other"] : ["request","other"];
+  var form = el("form");
+  if(listing){
+    var box = el("div","refbox"); box.appendChild(el("div","small",r.about));
+    box.appendChild(el("div","store",listing.r+" | "+fmt(listing.p)+" "+t.egp));
+    box.appendChild(el("div","meta",listing.prod.name[lang]+(listing.s?" | "+t.seller(listing.s):"")));
+    form.appendChild(box);
+  }
+  form.appendChild(el("span","lbl",r.what));
+  var chosen = optKeys[0];
+  optKeys.forEach(function(k,i){
+    var lab = el("label","radio"); var rb = el("input"); rb.type="radio"; rb.name="why"; rb.value=k; rb.checked = i===0;
+    rb.onchange = function(){ chosen = k; };
+    lab.appendChild(rb); lab.appendChild(el("span",null,r.opts[k])); form.appendChild(lab);
+  });
+  var phone = null;
+  if(!listing){ form.appendChild(el("span","lbl",r.which)); phone = el("input"); phone.type="text"; phone.value = wanted; form.appendChild(phone); }
+  form.appendChild(el("span","lbl",r.see));
+  var ta = el("textarea"); ta.placeholder = r.seeph; form.appendChild(ta);
+  form.appendChild(el("span","lbl",r.contact));
+  var ct = el("input"); ct.type="text"; ct.placeholder = r.contactph; ct.autocomplete="off"; form.appendChild(ct);
+  var send = el("button","go",r.send); send.type="submit"; send.style.marginTop="14px"; form.appendChild(send);
+  form.appendChild(el("p","small",r.note));
+  var out = el("div"); form.appendChild(out);
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    var L = r.lines, nl = "\n";
+    var lines = [L.head];
+    lines.push(L.listing+": "+(listing ? listing.r+", "+listing.prod.name[lang]+", "+fmt(listing.p)+" "+t.egp+(listing.s?", "+listing.s:"") : (phone && phone.value.trim()) || "-"));
+    lines.push(L.problem+": "+r.opts[chosen]);
+    if(ta.value.trim()) lines.push(L.details+": "+ta.value.trim());
+    if(ct.value.trim()) lines.push(L.contact+": "+ct.value.trim());
+    lines.push(L.page+": "+CHECKED);
+    var text = lines.join(nl);
+    out.textContent = "";
+    var res = el("div","result"); res.appendChild(el("b",null,r.done)); res.appendChild(el("p","small",r.doneHelp));
+    var box2 = el("textarea"); box2.readOnly = true; box2.value = text; res.appendChild(box2);
+    var cp = el("button","go",r.copy); cp.type="button";
+    cp.onclick = function(){
+      var ok = function(){ cp.textContent = r.copied; };
+      try{ navigator.clipboard.writeText(text).then(ok,function(){ box2.select(); document.execCommand("copy"); ok(); }); }
+      catch(err){ box2.select(); try{ document.execCommand("copy"); ok(); }catch(e2){} }
+    };
+    res.appendChild(cp);
+    if(REPORT_EMAIL){ var ma = el("a","go sec",r.mail); ma.style.display="inline-flex"; ma.style.alignItems="center"; ma.style.textDecoration="none"; ma.style.marginInlineStart="8px";
+      ma.href = "mailto:"+REPORT_EMAIL+"?subject="+encodeURIComponent(L.head)+"&body="+encodeURIComponent(text); res.appendChild(ma); }
+    out.appendChild(res);
+  });
+  m.appendChild(form);
+}
+
+/* ---------- screen 7: AslyBot ---------- */
+function renderBot(m){
+  var b = T[lang].bot;
+  backLink(m);
+  m.appendChild(el("h2","pg",b.title));
+  m.appendChild(el("p",null,b.intro));
+  m.appendChild(el("h3",null,b.h1)); m.appendChild(el("p",null,b.p1));
+  m.appendChild(el("h3",null,b.h2));
+  var ul = el("ul","plain"); b.li.forEach(function(x){ ul.appendChild(el("li",null,x)); }); m.appendChild(ul);
+  m.appendChild(el("h3",null,b.h3));
+  var bn = el("div","banner",(CONTACT_EMAIL || b.placeholder)+". "+b.contact); m.appendChild(bn);
+  m.appendChild(el("h3",null,b.h4)); m.appendChild(el("p",null,b.p4));
+}
+
+$("lang").addEventListener("click",function(){
+  lang = lang==="ar" ? "en" : "ar";
+  try{ localStorage.setItem("asly-lang",lang); }catch(e){}
+  render();
+});
+$("logo").addEventListener("click",function(){ go("") });
+window.addEventListener("hashchange",function(){ readHash(); render(); window.scrollTo(0,0); });
+if(wideMQ.addEventListener) wideMQ.addEventListener("change",function(){ render(); });
+readHash(); render();
+</script>
+</body>
+</html>
